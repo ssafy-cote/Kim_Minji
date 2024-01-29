@@ -57,20 +57,17 @@ def fishes_move():
           if fish_grid[i][j] == order:
             now_dir = dir_grid[i][j]
             for _ in range(1, 9):
-              if now_dir == 9:
-                now_dir = 1
               dx, dy = dxs[now_dir], dys[now_dir]
               nx, ny = i+dx, j+dy
-              if in_range(nx, ny) and nx!=cx and ny!=cy:
+              if in_range(nx, ny) and (nx!=cx or ny!=cy):
                 swap_pos(i, j, nx, ny)
-                print(order, now_dir)
-                for elem in fish_grid:
-                  print(*elem)  
-                print()
                 flag = True
                 break
               else:
                 now_dir+=1
+                if now_dir == 9:
+                  now_dir = 1
+              print(now_dir)
             if flag:
               break
         if flag:
@@ -81,3 +78,6 @@ def fishes_move():
         break
     return
 fishes_move()
+for elem in fish_grid:
+    print(*elem)  
+    print()
