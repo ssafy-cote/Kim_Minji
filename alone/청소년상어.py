@@ -47,7 +47,6 @@ def swap_pos(i, j, nx, ny):
   global dir_grid, fish_grid
   dir_grid[nx][ny], dir_grid[i][j] = dir_grid[i][j], dir_grid[nx][ny]
   fish_grid[nx][ny], fish_grid[i][j] = fish_grid[i][j], fish_grid[nx][ny]
-
 # 물고기들 움직이기
 def fishes_move():
     order = 1
